@@ -5,12 +5,10 @@ dotenvConfig({ path: resolve(__dirname, './.env') });
 import { HardhatUserConfig } from 'hardhat/types';
 
 import '@nomiclabs/hardhat-waffle';
-import '@nomiclabs/hardhat-solhint';
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-etherscan';
 import 'hardhat-deploy';
 import 'hardhat-gas-reporter';
-import 'solidity-coverage';
 
 const CHAIN_IDS = {
   hardhat: 1337,
