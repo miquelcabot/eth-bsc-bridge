@@ -6,7 +6,6 @@ import { HardhatUserConfig } from 'hardhat/types';
 
 import '@nomiclabs/hardhat-waffle';
 import '@nomiclabs/hardhat-ethers';
-import '@nomiclabs/hardhat-etherscan';
 import 'hardhat-deploy';
 import 'hardhat-gas-reporter';
 
