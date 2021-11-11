@@ -13,6 +13,13 @@ cp .env.example .env
 vi .env # add an account's mnemonic and an Infura API key
 ```
 
+## Compile smart contracts
+
+Compile the smart contracts and generate Typechain files:
+```
+yarn compile
+```
+
 ## Deploy smart contracts
 
 Deploy to Rinkeby:
