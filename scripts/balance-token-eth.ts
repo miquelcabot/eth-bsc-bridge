@@ -4,7 +4,7 @@ import { ethers } from 'hardhat';
 import { TokenETH } from '../typechain/TokenETH';
 // eslint-disable-next-line camelcase
 import { TokenETH__factory } from '../typechain/factories/TokenETH__factory';
-// Addresses in Mainnet
+// Addresses in Rinkeby
 import * as TOKENETH from '../deployments/rinkeby/TokenETH.json';
 
 /**
@@ -16,7 +16,7 @@ async function main() {
   const tokenETH: TokenETH = TokenETH__factory.connect(TOKENETH.address, owner);
 
   const balance = await tokenETH.balanceOf(owner.address);
-  console.log(`Balance of ${owner.address}: ${balance}`);
+  console.log(`Balance of ${owner.address} in Rinkeby: ${balance}`);
 }
 
 main()

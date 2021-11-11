@@ -19,7 +19,8 @@
     "test:gas": "GAS_REPORT=TRUE hardhat test",
     "deploy:rinkeby": "hardhat deploy --network rinkeby",
     "deploy:bsctest": "hardhat deploy --network bsctest",
-    "balance-token-eth": "hardhat run --network rinkeby scripts/balance-token-eth.ts"
+    "balance-token-eth": "hardhat run --network rinkeby scripts/balance-token-eth.ts",
+    "balance-token-bsc": "hardhat run --network bsctest scripts/balance-token-bsc.ts"
   },
   "devDependencies": {
     "@nomiclabs/buidler": "^1.4.8",
