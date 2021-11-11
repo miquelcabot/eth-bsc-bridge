@@ -7,9 +7,12 @@
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "rootDirs": ["./test"]
+    "rootDirs": [
+      "./test"
+    ]
   },
   "include": [
+    "./typechain",
     "./test"
   ],
   "exclude": [

@@ -6,6 +6,8 @@ import { HardhatUserConfig } from 'hardhat/types';
 
 import '@nomiclabs/hardhat-waffle';
 import '@nomiclabs/hardhat-ethers';
+import '@typechain/ethers-v5';
+import '@typechain/hardhat'
 import 'hardhat-deploy';
 import 'hardhat-gas-reporter';
 
@@ -88,6 +90,9 @@ const config: HardhatUserConfig = {
     deployer: {
       default: 0 // Here this will by default take the first account as deployer
     }
+  },
+  typechain: {
+    outDir: 'typechain'
   }
 };
 
