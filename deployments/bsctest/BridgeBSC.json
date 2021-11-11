@@ -1,5 +1,5 @@
 {
-  "address": "0xF94Ef542Cb8d1196972E6A775898cd4C7492CC5f",
+  "address": "0x0d5574547bfA792308d5083FEdab4C4Ece709C95",
   "abi": [
     {
       "inputs": [
@@ -155,24 +155,24 @@
       "type": "function"
     }
   ],
-  "transactionHash": "0x3a6bc74bc18f112328a16a3ddc66f7e35aedfb593d1de7431afbc0b71faed71b",
+  "transactionHash": "0xbf8af558b93005dc6e32b4695ca24e07380314e16cf566c6a391e2918286cde0",
   "receipt": {
     "to": null,
     "from": "0x207ca4370639120f9A049aF9CAB4fCaa608F2445",
-    "contractAddress": "0xF94Ef542Cb8d1196972E6A775898cd4C7492CC5f",
-    "transactionIndex": 1,
-    "gasUsed": "323419",
+    "contractAddress": "0x0d5574547bfA792308d5083FEdab4C4Ece709C95",
+    "transactionIndex": 0,
+    "gasUsed": "323431",
     "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "blockHash": "0x53b3f2b1d6c7c8be92a05364e4c48a1f201beadc2491df6ddff09983d721b64b",
-    "transactionHash": "0x3a6bc74bc18f112328a16a3ddc66f7e35aedfb593d1de7431afbc0b71faed71b",
+    "blockHash": "0x207d6f7c6b37996fa1d605d1ff0dad5164121bd6f908e0976c854fe6472a437e",
+    "transactionHash": "0xbf8af558b93005dc6e32b4695ca24e07380314e16cf566c6a391e2918286cde0",
     "logs": [],
-    "blockNumber": 14023140,
-    "cumulativeGasUsed": "355130",
+    "blockNumber": 14025879,
+    "cumulativeGasUsed": "323431",
     "status": 1,
     "byzantium": true
   },
   "args": [
-    "0x46C5A8c2090400F353BB28290685E5CB0D2919F0"
+    "0x2258d04d22457292faa205e399093993b811830a"
   ],
   "solcInputHash": "846792df61b2142d5656f067685ddd56",
   "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"date\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"enum BridgeBase.Step\",\"name\":\"step\",\"type\":\"uint8\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"otherChainNonce\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nonce\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"processedNonces\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/BridgeBSC.sol\":\"BridgeBSC\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/BridgeBSC.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"./BridgeBase.sol\\\";\\n\\ncontract BridgeBSC is BridgeBase {\\n    constructor(address token) BridgeBase(token) {}\\n}\\n\",\"keccak256\":\"0x6032826ca0a4dacfc98062e2ffd86aefeefe944f3f9732015b1bfc6c2f88f523\"},\"contracts/BridgeBase.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"./IToken.sol\\\";\\n\\ncontract BridgeBase {\\n    address public owner;\\n    IToken public token;\\n    uint256 public nonce;\\n    mapping(uint256 => bool) public processedNonces;\\n\\n    enum Step {\\n        Burn,\\n        Mint\\n    }\\n\\n    event Transfer(\\n        address from,\\n        address to,\\n        uint256 amount,\\n        uint256 date,\\n        uint256 nonce,\\n        Step indexed step\\n    );\\n\\n    constructor(address _token) {\\n        owner = msg.sender;\\n        token = IToken(_token);\\n    }\\n\\n    function burn(address account, uint256 amount) external {\\n        token.burn(msg.sender, amount);\\n        emit Transfer(\\n            msg.sender,\\n            account,\\n            amount,\\n            block.timestamp,\\n            nonce,\\n            Step.Burn\\n        );\\n        nonce++;\\n    }\\n\\n    function mint(\\n        address account,\\n        uint256 amount,\\n        uint256 otherChainNonce\\n    ) external onlyOwner {\\n        require(\\n            processedNonces[otherChainNonce] == false,\\n            \\\"TRANSFER_ALREADY_PROCESSED\\\"\\n        );\\n        processedNonces[otherChainNonce] = true;\\n        token.mint(account, amount);\\n        emit Transfer(\\n            msg.sender,\\n            account,\\n            amount,\\n            block.timestamp,\\n            otherChainNonce,\\n            Step.Mint\\n        );\\n    }\\n\\n    modifier onlyOwner() {\\n        require(msg.sender == owner, \\\"ONLY_OWNER\\\");\\n        _;\\n    }\\n}\\n\",\"keccak256\":\"0xedcb4b9e4dbb8e338a673bfa626f6f935af9b00dbb65e129e31a8e1c00ffc5d3\"},\"contracts/IToken.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\ninterface IToken {\\n    function mint(address account, uint256 amount) external;\\n\\n    function burn(address account, uint256 amount) external;\\n}\\n\",\"keccak256\":\"0xa51eb39fe241ee75295592ec2529840fbe72f94efb013a2e56b01d19e07070de\"}},\"version\":1}",
