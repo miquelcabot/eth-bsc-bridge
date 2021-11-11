@@ -3,26 +3,26 @@ pragma solidity >=0.6.0 <0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract TokenBase is ERC20 {
-    address public admin;
+    address public owner;
 
     constructor(string memory name, string memory symbol) ERC20(name, symbol) {
-        admin = msg.sender;
+        owner = msg.sender;
     }
 
-    function updateAdmin(address account) external onlyAdmin {
-        admin = account;
+    function updateOwner(address account) external onlyOwner {
+        owner = account;
     }
 
-    function mint(address account, uint256 amount) external onlyAdmin {
+    function mint(address account, uint256 amount) external onlyOwner {
         _mint(account, amount);
     }
 
-    function burn(address account, uint256 amount) external onlyAdmin {
+    function burn(address account, uint256 amount) external onlyOwner {
         _burn(account, amount);
     }
 
-    modifier onlyAdmin() {
-        require(msg.sender == admin, "ONLY_ADMIN");
+    modifier onlyOwner() {
+        require(msg.sender == owner, "ONLY_OWNER");
         _;
     }
 }

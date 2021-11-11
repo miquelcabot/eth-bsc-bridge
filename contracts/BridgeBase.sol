@@ -3,7 +3,7 @@ pragma solidity >=0.6.0 <0.8.0;
 import "./IToken.sol";
 
 contract BridgeBase {
-    address public admin;
+    address public owner;
     IToken public token;
     uint256 public nonce;
     mapping(uint256 => bool) public processedNonces;
@@ -23,7 +23,7 @@ contract BridgeBase {
     );
 
     constructor(address _token) {
-        admin = msg.sender;
+        owner = msg.sender;
         token = IToken(_token);
     }
 
@@ -44,7 +44,7 @@ contract BridgeBase {
         address account,
         uint256 amount,
         uint256 otherChainNonce
-    ) external onlyAdmin {
+    ) external onlyOwner {
         require(
             processedNonces[otherChainNonce] == false,
             "TRANSFER_ALREADY_PROCESSED"
@@ -61,8 +61,8 @@ contract BridgeBase {
         );
     }
 
-    modifier onlyAdmin() {
-        require(msg.sender == admin, "ONLY_ADMIN");
+    modifier onlyOwner() {
+        require(msg.sender == owner, "ONLY_OWNER");
         _;
     }
 }
