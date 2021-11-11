@@ -13,7 +13,6 @@ import * as TOKENBSC from '../deployments/bsctest/TokenBSC.json';
 async function main() {
   const [owner] = await ethers.getSigners();
 
-  console.log(TOKENBSC.address);
   const tokenBSC: TokenBSC = TokenBSC__factory.connect(TOKENBSC.address, owner);
 
   const balance = await tokenBSC.balanceOf(owner.address);
