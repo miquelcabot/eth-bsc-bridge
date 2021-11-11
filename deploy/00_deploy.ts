@@ -15,9 +15,10 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   [owner] = await ethers.getSigners();
 
   const chainId = await getChainId();
-  console.log(chainId);
 
-  if (chainId == '4') { // ----- rinkeby -----------------------------------------
+  if (chainId == '4') { // ----- rinkeby ---------------------------------------
+    console.log(`Deploying to chainId ${chainId} - Rinkeby`);
+
     // Deploy TokenETH
     const tokenETH = await deploy('TokenETH', {
       from: deployer,
@@ -31,7 +32,9 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       args: [tokenETH.address],
       log: true
     });
-  } else if (chainId == '97') { // ----- bsctest ---------------------------------
+  } else if (chainId == '97') { // ----- bsctest -------------------------------
+    console.log(`Deploying to chainId ${chainId} - BSCtest`);
+
     // Deploy TokenBSC
     const tokenBSC = await deploy('TokenBSC', {
       from: deployer,
