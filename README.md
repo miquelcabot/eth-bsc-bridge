@@ -12,3 +12,15 @@ The Metamask account (mnemonic in the `.env`) needs to have enough funds in the 
 cp .env.example .env
 vi .env # add an account's mnemonic and an Infura API key
 ```
+
+## Deploy smart contracts
+
+Deploy to Rinkeby:
+```
+yarn deploy:rinkeby
+```
+
+Deploy to BSC test network:
+```
+yarn deploy:bsctest
+```
