@@ -3,12 +3,6 @@ import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import { ethers } from 'hardhat';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { TokenETH } from '../typechain/TokenETH';
-// eslint-disable-next-line camelcase
-import { TokenETH__factory } from '../typechain/factories/TokenETH__factory';
-import { TokenBSC } from '../typechain/TokenBSC';
-// eslint-disable-next-line camelcase
-import { TokenBSC__factory } from '../typechain/factories/TokenBSC__factory';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts, getChainId } = hre;
@@ -33,7 +27,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     });
 
     // Mint to owner
-    const tokenETHContract: TokenETH = TokenETH__factory.connect(tokenETH.address, owner);
+    const TokenETH = await ethers.getContractFactory('TokenETH');
+    const tokenETHContract = await TokenETH.attach(tokenETH.address);
     await tokenETHContract.mint(
       owner.address,
       ethers.utils.parseEther('1000')
@@ -68,7 +63,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     });
 
     // Set owner to bridgeBSC
-    const tokenBSCContract: TokenBSC = TokenBSC__factory.connect(tokenBSC.address, owner);
+    const TokenBSC = await ethers.getContractFactory('TokenBSC');
+    const tokenBSCContract = await TokenBSC.attach(tokenBSC.address);
     await tokenBSCContract.updateOwner(
       bridgeBSC.address
     );

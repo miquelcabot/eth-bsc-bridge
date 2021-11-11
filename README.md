@@ -13,7 +13,7 @@ vi .env # add an account's mnemonic and an Infura API key
 ```
 
 ## Compile smart contracts
-Compile the smart contracts and generate Typechain files:
+Compile the smart contracts:
 ```
 yarn compile
 ```

@@ -104,4 +104,3 @@ coverage/
 .openzeppelin/
 /dist
 /deployments/localhost
-/typechain
