@@ -6,7 +6,7 @@ contract TokenBase is ERC20 {
     address public admin;
 
     constructor(string memory name, string memory symbol) ERC20(name, symbol) {
-        admin = _msgSender();
+        admin = msg.sender;
     }
 
     function updateAdmin(address account) external onlyAdmin {
@@ -22,7 +22,7 @@ contract TokenBase is ERC20 {
     }
 
     modifier onlyAdmin() {
-        require(_msgSender() == admin, "ONLY_ADMIN");
+        require(msg.sender == admin, "ONLY_ADMIN");
         _;
     }
 }
