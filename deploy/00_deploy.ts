@@ -51,6 +51,6 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 };
 
-func.tags = ['TokenETH', 'BridgeETH'];
+func.tags = ['TokenETH', 'BridgeETH', 'TokenBSC', 'BridgeBSC'];
 
 export default func;
