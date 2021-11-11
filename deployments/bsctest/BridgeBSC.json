@@ -1,0 +1,256 @@
+{
+  "address": "0xF4461777C9b32a40B12aCCC642b73B7118e9D64c",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "date",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "enum BridgeBase.Step",
+          "name": "step",
+          "type": "uint8"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "otherChainNonce",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nonce",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "processedNonces",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xa82332b83e418a0347779910832fc9cf3c325204ebb46d0e9f86577fc8d52113",
+  "receipt": {
+    "to": null,
+    "from": "0x207ca4370639120f9A049aF9CAB4fCaa608F2445",
+    "contractAddress": "0xF4461777C9b32a40B12aCCC642b73B7118e9D64c",
+    "transactionIndex": 0,
+    "gasUsed": "323431",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x30203cd589f7e464d0a74435f77ccadcab9c8ae05018b12e7968348976076083",
+    "transactionHash": "0xa82332b83e418a0347779910832fc9cf3c325204ebb46d0e9f86577fc8d52113",
+    "logs": [],
+    "blockNumber": 14020660,
+    "cumulativeGasUsed": "323431",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x32d6976d01a07492AfaE0fCB0c5Fc59d2c113Df7"
+  ],
+  "solcInputHash": "846792df61b2142d5656f067685ddd56",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"date\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"enum BridgeBase.Step\",\"name\":\"step\",\"type\":\"uint8\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"otherChainNonce\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nonce\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"processedNonces\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/BridgeBSC.sol\":\"BridgeBSC\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/BridgeBSC.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"./BridgeBase.sol\\\";\\n\\ncontract BridgeBSC is BridgeBase {\\n    constructor(address token) BridgeBase(token) {}\\n}\\n\",\"keccak256\":\"0x6032826ca0a4dacfc98062e2ffd86aefeefe944f3f9732015b1bfc6c2f88f523\"},\"contracts/BridgeBase.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"./IToken.sol\\\";\\n\\ncontract BridgeBase {\\n    address public owner;\\n    IToken public token;\\n    uint256 public nonce;\\n    mapping(uint256 => bool) public processedNonces;\\n\\n    enum Step {\\n        Burn,\\n        Mint\\n    }\\n\\n    event Transfer(\\n        address from,\\n        address to,\\n        uint256 amount,\\n        uint256 date,\\n        uint256 nonce,\\n        Step indexed step\\n    );\\n\\n    constructor(address _token) {\\n        owner = msg.sender;\\n        token = IToken(_token);\\n    }\\n\\n    function burn(address account, uint256 amount) external {\\n        token.burn(msg.sender, amount);\\n        emit Transfer(\\n            msg.sender,\\n            account,\\n            amount,\\n            block.timestamp,\\n            nonce,\\n            Step.Burn\\n        );\\n        nonce++;\\n    }\\n\\n    function mint(\\n        address account,\\n        uint256 amount,\\n        uint256 otherChainNonce\\n    ) external onlyOwner {\\n        require(\\n            processedNonces[otherChainNonce] == false,\\n            \\\"TRANSFER_ALREADY_PROCESSED\\\"\\n        );\\n        processedNonces[otherChainNonce] = true;\\n        token.mint(account, amount);\\n        emit Transfer(\\n            msg.sender,\\n            account,\\n            amount,\\n            block.timestamp,\\n            otherChainNonce,\\n            Step.Mint\\n        );\\n    }\\n\\n    modifier onlyOwner() {\\n        require(msg.sender == owner, \\\"ONLY_OWNER\\\");\\n        _;\\n    }\\n}\\n\",\"keccak256\":\"0xedcb4b9e4dbb8e338a673bfa626f6f935af9b00dbb65e129e31a8e1c00ffc5d3\"},\"contracts/IToken.sol\":{\"content\":\"pragma solidity >=0.6.0 <0.8.0;\\n\\ninterface IToken {\\n    function mint(address account, uint256 amount) external;\\n\\n    function burn(address account, uint256 amount) external;\\n}\\n\",\"keccak256\":\"0xa51eb39fe241ee75295592ec2529840fbe72f94efb013a2e56b01d19e07070de\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161048c38038061048c8339818101604052602081101561003357600080fd5b5051600080546001600160a01b03199081163317909155600180546001600160a01b039093169290911691909117905561041a806100726000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c8063156e29f6146100675780638da5cb5b1461009b57806391dae519146100bf5780639dc29fac146100f0578063affed0e01461011c578063fc0c546a14610136575b600080fd5b6100996004803603606081101561007d57600080fd5b506001600160a01b03813516906020810135906040013561013e565b005b6100a36102d2565b604080516001600160a01b039092168252519081900360200190f35b6100dc600480360360208110156100d557600080fd5b50356102e1565b604080519115158252519081900360200190f35b6100996004803603604081101561010657600080fd5b506001600160a01b0381351690602001356102f6565b6101246103cf565b60408051918252519081900360200190f35b6100a36103d5565b6000546001600160a01b0316331461018a576040805162461bcd60e51b815260206004820152600a60248201526927a7262cafa7aba722a960b11b604482015290519081900360640190fd5b60008181526003602052604090205460ff16156101ee576040805162461bcd60e51b815260206004820152601a60248201527f5452414e534645525f414c52454144595f50524f434553534544000000000000604482015290519081900360640190fd5b600081815260036020526040808220805460ff191660019081179091555481516340c10f1960e01b81526001600160a01b03878116600483015260248201879052925192909116926340c10f199260448084019382900301818387803b15801561025757600080fd5b505af115801561026b573d6000803e3d6000fd5b5060019250610278915050565b604080513381526001600160a01b03861660208201528082018590524260608201526080810184905290517f27757542a5e1b9e8cef80f584e094d4eb63b9802f355c61b3640b71b618d5c8e9181900360a00190a2505050565b6000546001600160a01b031681565b60036020526000908152604090205460ff1681565b60015460408051632770a7eb60e21b81523360048201526024810184905290516001600160a01b0390921691639dc29fac9160448082019260009290919082900301818387803b15801561034957600080fd5b505af115801561035d573d6000803e3d6000fd5b506000925061036a915050565b600254604080513381526001600160a01b03861660208201528082018590524260608201526080810192909252517f27757542a5e1b9e8cef80f584e094d4eb63b9802f355c61b3640b71b618d5c8e9181900360a00190a25050600280546001019055565b60025481565b6001546001600160a01b03168156fea2646970667358221220f018aee89e39c5d44bb13b25b4ae199c5bce4cee08290e93104ef9aa25a14b9064736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c8063156e29f6146100675780638da5cb5b1461009b57806391dae519146100bf5780639dc29fac146100f0578063affed0e01461011c578063fc0c546a14610136575b600080fd5b6100996004803603606081101561007d57600080fd5b506001600160a01b03813516906020810135906040013561013e565b005b6100a36102d2565b604080516001600160a01b039092168252519081900360200190f35b6100dc600480360360208110156100d557600080fd5b50356102e1565b604080519115158252519081900360200190f35b6100996004803603604081101561010657600080fd5b506001600160a01b0381351690602001356102f6565b6101246103cf565b60408051918252519081900360200190f35b6100a36103d5565b6000546001600160a01b0316331461018a576040805162461bcd60e51b815260206004820152600a60248201526927a7262cafa7aba722a960b11b604482015290519081900360640190fd5b60008181526003602052604090205460ff16156101ee576040805162461bcd60e51b815260206004820152601a60248201527f5452414e534645525f414c52454144595f50524f434553534544000000000000604482015290519081900360640190fd5b600081815260036020526040808220805460ff191660019081179091555481516340c10f1960e01b81526001600160a01b03878116600483015260248201879052925192909116926340c10f199260448084019382900301818387803b15801561025757600080fd5b505af115801561026b573d6000803e3d6000fd5b5060019250610278915050565b604080513381526001600160a01b03861660208201528082018590524260608201526080810184905290517f27757542a5e1b9e8cef80f584e094d4eb63b9802f355c61b3640b71b618d5c8e9181900360a00190a2505050565b6000546001600160a01b031681565b60036020526000908152604090205460ff1681565b60015460408051632770a7eb60e21b81523360048201526024810184905290516001600160a01b0390921691639dc29fac9160448082019260009290919082900301818387803b15801561034957600080fd5b505af115801561035d573d6000803e3d6000fd5b506000925061036a915050565b600254604080513381526001600160a01b03861660208201528082018590524260608201526080810192909252517f27757542a5e1b9e8cef80f584e094d4eb63b9802f355c61b3640b71b618d5c8e9181900360a00190a25050600280546001019055565b60025481565b6001546001600160a01b03168156fea2646970667358221220f018aee89e39c5d44bb13b25b4ae199c5bce4cee08290e93104ef9aa25a14b9064736f6c63430007060033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 19,
+        "contract": "contracts/BridgeBSC.sol:BridgeBSC",
+        "label": "owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 21,
+        "contract": "contracts/BridgeBSC.sol:BridgeBSC",
+        "label": "token",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_contract(IToken)183"
+      },
+      {
+        "astId": 23,
+        "contract": "contracts/BridgeBSC.sol:BridgeBSC",
+        "label": "nonce",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 27,
+        "contract": "contracts/BridgeBSC.sol:BridgeBSC",
+        "label": "processedNonces",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_uint256,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IToken)183": {
+        "encoding": "inplace",
+        "label": "contract IToken",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

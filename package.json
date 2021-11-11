@@ -17,8 +17,8 @@
     "hardhat:node": "hardhat node",
     "test:localnet": "hardhat test --network hardhat",
     "test:gas": "GAS_REPORT=TRUE hardhat test",
-    "deploy:localnet": "hardhat deploy --network hardhat",
-    "deploy:rinkeby": "hardhat run --network rinkeby scripts/deploy.ts"
+    "deploy:rinkeby": "hardhat deploy --network rinkeby",
+    "deploy:bsctest": "hardhat deploy --network bsctest"
   },
   "devDependencies": {
     "@nomiclabs/buidler": "^1.4.8",
