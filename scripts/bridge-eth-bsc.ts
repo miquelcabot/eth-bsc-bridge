@@ -14,6 +14,13 @@ async function main() {
   const BridgeETH = await ethers.getContractFactory('BridgeETH');
   const bridgeETH = BridgeETH.attach(BRIDGEETH.address);
 
+  const events = await bridgeETH.queryFilter(bridgeETH.filters.Transfer(), 0);
+  for (let i = 0; i < events.length; i++) {
+    console.log('Transfer');
+    console.log(events[i].args);
+    console.log(``);
+  }
+
   bridgeETH.on('Transfer', (from, to, amount, date, nonce, step) => {  // When we detect the Transfer event
     console.log('Transfer');
     console.log(`from: ${from}`);
