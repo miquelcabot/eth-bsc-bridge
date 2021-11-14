@@ -8,20 +8,26 @@ import * as BRIDGEETH from '../deployments/rinkeby/BridgeETH.json';
  * main function
  */
 async function main() {
-  const [owner] = await ethers.getSigners();
-  const amount = 1000;
-
   const BridgeETH = await ethers.getContractFactory('BridgeETH');
   const bridgeETH = BridgeETH.attach(BRIDGEETH.address);
 
+  // List past Transfer events
   const events = await bridgeETH.queryFilter(bridgeETH.filters.Transfer(), 0);
   for (let i = 0; i < events.length; i++) {
     console.log('Transfer');
-    console.log(events[i].args);
+    if (events[i].args!) {
+      console.log(`from: ${events[i].args?.from}`);
+      console.log(`to: ${events[i].args?.to}`);
+      console.log(`amount: ${events[i].args?.amount}`);
+      console.log(`date: ${events[i].args?.date}`);
+      console.log(`nonce: ${events[i].args?.nonce}`);
+      console.log(`step: ${events[i].args?.step}`);
+    }
     console.log(``);
   }
 
-  bridgeETH.on('Transfer', (from, to, amount, date, nonce, step) => {  // When we detect the Transfer event
+  // Wait for new Transfer event
+  bridgeETH.on('Transfer', (from, to, amount, date, nonce, step) => {
     console.log('Transfer');
     console.log(`from: ${from}`);
     console.log(`to: ${to}`);
@@ -29,17 +35,8 @@ async function main() {
     console.log(`date: ${date}`);
     console.log(`nonce: ${nonce}`);
     console.log(`step: ${step}`);
+    console.log(``);
   });
-
-  const tx = await bridgeETH.burn(owner.address, amount);
-  const receipt = await tx.wait();
-  console.log('transactionHash: ', receipt.transactionHash);
-  console.log('logs: ', JSON.stringify(receipt.logs));
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch(error => {
-    console.error(error);
-    process.exit(1);
-  });
+main();
