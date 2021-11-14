@@ -1,8 +1,23 @@
 /* eslint-disable no-console */
+import { BigNumber } from '@ethersproject/bignumber';
 import '@nomiclabs/hardhat-ethers';
 import { ethers } from 'hardhat';
 // Addresses in Rinkeby
 import * as BRIDGEETH from '../deployments/rinkeby/BridgeETH.json';
+
+/**
+ * Bridge function
+ */
+async function bridge(from: string, to: string, amount: BigNumber, date: BigNumber, nonce: BigNumber, step: number) {
+  console.log('Transfer');
+  console.log(`from: ${from}`);
+  console.log(`to: ${to}`);
+  console.log(`amount: ${amount}`);
+  console.log(`date: ${date}`);
+  console.log(`nonce: ${nonce}`);
+  console.log(`step: ${step}`);
+  console.log(``);
+}
 
 /**
  * main function
@@ -14,28 +29,19 @@ async function main() {
   // List past Transfer events
   const events = await bridgeETH.queryFilter(bridgeETH.filters.Transfer(), 0);
   for (let i = 0; i < events.length; i++) {
-    console.log('Transfer');
-    if (events[i].args!) {
-      console.log(`from: ${events[i].args?.from}`);
-      console.log(`to: ${events[i].args?.to}`);
-      console.log(`amount: ${events[i].args?.amount}`);
-      console.log(`date: ${events[i].args?.date}`);
-      console.log(`nonce: ${events[i].args?.nonce}`);
-      console.log(`step: ${events[i].args?.step}`);
-    }
-    console.log(``);
+    await bridge(
+      events[i].args?.from,
+      events[i].args?.to,
+      events[i].args?.amount,
+      events[i].args?.date,
+      events[i].args?.nonce,
+      events[i].args?.step
+    );
   }
 
   // Wait for new Transfer event
-  bridgeETH.on('Transfer', (from, to, amount, date, nonce, step) => {
-    console.log('Transfer');
-    console.log(`from: ${from}`);
-    console.log(`to: ${to}`);
-    console.log(`amount: ${amount}`);
-    console.log(`date: ${date}`);
-    console.log(`nonce: ${nonce}`);
-    console.log(`step: ${step}`);
-    console.log(``);
+  bridgeETH.on('Transfer', async (from, to, amount, date, nonce, step) => {
+    await bridge(from, to, amount, date, nonce, step);
   });
 }
 
