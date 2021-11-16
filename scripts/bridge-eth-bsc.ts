@@ -38,18 +38,32 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
     const bridgeBSC = BridgeBSC.attach(BRIDGEBSC.address);
 
     // We mint() in BSC
-    const tx = await bridgeBSC.mint(from, to, amount, nonce, signature);
-    const receipt = await tx.wait();
-    console.log(`Transaction hash: ${receipt.transactionHash}`);
-    console.log(`
-      Processed transfer:
-      - from ${from} 
-      - to ${to} 
-      - amount ${amount} tokens
-      - date ${date}
-      - nonce ${nonce}
-      - signature ${signature}
-    `);
+    try {
+      const tx = await bridgeBSC.mint(from, to, amount, nonce, signature);
+      const receipt = await tx.wait();
+      console.log(`Transaction hash: ${receipt.transactionHash}`);
+      console.log(`
+        Processed transfer:
+        - from ${from} 
+        - to ${to} 
+        - amount ${amount} tokens
+        - date ${date}
+        - nonce ${nonce}
+        - signature ${signature}
+      `);
+    } catch (error) {
+      console.log(`
+        Error in transfer:
+        - from ${from} 
+        - to ${to} 
+        - amount ${amount} tokens
+        - date ${date}
+        - nonce ${nonce}
+        - signature ${signature}
+        - error ${error}
+      `);
+    }
+
   }
 }
 
