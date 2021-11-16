@@ -7,7 +7,6 @@ import { ethers } from 'hardhat';
 // Addresses in Rinkeby
 import * as BRIDGEETH from '../deployments/rinkeby/BridgeETH.json';
 import * as BRIDGEBSC from '../deployments/bsctest/BridgeBSC.json';
-import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 
 dotenvConfig({ path: resolve(__dirname, './.env') });
 
@@ -16,13 +15,15 @@ const MNEMONIC: string = process.env.MNEMONIC || '';
 /**
  * bridge function
  */
-async function bridge(from: string, to: string, amount: BigNumber, date: BigNumber, nonce: BigNumber, step: number, process: boolean) {
+async function bridge(from: string, to: string, amount: BigNumber, date: BigNumber, nonce: BigNumber, signature: any, step: number, process: boolean) {
   console.log('Transfer');
   console.log(`from: ${from}`);
   console.log(`to: ${to}`);
   console.log(`amount: ${amount}`);
   console.log(`date: ${date}`);
   console.log(`nonce: ${nonce}`);
+  console.log(typeof signature);
+  console.log(`signature: ${signature}`);
   console.log(`step: ${step}`);
   console.log(``);
 
@@ -37,7 +38,7 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
     const bridgeBSC = BridgeBSC.attach(BRIDGEBSC.address);
 
     // We mint() in BSC
-    const tx = await bridgeBSC.mint(to, amount, nonce);
+    const tx = await bridgeBSC.mint(from, to, amount, nonce, signature);
     const receipt = await tx.wait();
     console.log(`Transaction hash: ${receipt.transactionHash}`);
     console.log(`
@@ -46,6 +47,8 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
       - to ${to} 
       - amount ${amount} tokens
       - date ${date}
+      - nonce ${nonce}
+      - signature ${signature}
     `);
   }
 }
@@ -66,14 +69,15 @@ async function main() {
       events[i].args?.amount,
       events[i].args?.date,
       events[i].args?.nonce,
+      events[i].args?.signature,
       events[i].args?.step,
       false
     );
   }
 
   // Wait for new Transfer event
-  bridgeETH.on('Transfer', async (from, to, amount, date, nonce, step) => {
-    await bridge(from, to, amount, date, nonce, step, true);
+  bridgeETH.on('Transfer', async (from, to, amount, date, nonce, signature, step) => {
+    await bridge(from, to, amount, date, nonce, signature, step, true);
   });
 }
 
