@@ -7,6 +7,7 @@ contract BridgeBase {
     address public owner;
     IToken public token;
     mapping(address => mapping(uint256 => bool)) public processedNonces;
+    mapping(address => uint256) public maxProcessedNonce;
 
     enum Step {
         Burn,
@@ -39,6 +40,9 @@ contract BridgeBase {
             "TRANSFER_ALREADY_PROCESSED"
         );
         processedNonces[msg.sender][nonce] = true;
+        if (nonce > maxProcessedNonce[msg.sender]) {
+            maxProcessedNonce[msg.sender] = nonce;
+        }
         token.burn(msg.sender, amount);
         emit Transfer(
             msg.sender,
@@ -67,6 +71,9 @@ contract BridgeBase {
             "TRANSFER_ALREADY_PROCESSED"
         );
         processedNonces[from][nonce] = true;
+        if (nonce > maxProcessedNonce[from]) {
+            maxProcessedNonce[from] = nonce;
+        }
         token.mint(to, amount);
         emit Transfer(
             from,
