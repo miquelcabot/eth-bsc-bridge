@@ -1,0 +1,44 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/BridgeBase.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\n\nimport \"./IToken.sol\";\n\ncontract BridgeBase {\n    address public owner;\n    IToken public token;\n    mapping(address => mapping(uint256 => bool)) public processedNonces;\n\n    enum Step {\n        Burn,\n        Mint\n    }\n\n    event Transfer(\n        address from,\n        address to,\n        uint256 amount,\n        uint256 date,\n        uint256 nonce,\n        bytes signature,\n        Step indexed step\n    );\n\n    constructor(address _token) {\n        owner = msg.sender;\n        token = IToken(_token);\n    }\n\n    function burn(\n        address to,\n        uint256 amount,\n        uint256 nonce,\n        bytes calldata signature\n    ) external {\n        require(\n            processedNonces[msg.sender][nonce] == false,\n            \"TRANSFER_ALREADY_PROCESSED\"\n        );\n        processedNonces[msg.sender][nonce] = true;\n        token.burn(msg.sender, amount);\n        emit Transfer(\n            msg.sender,\n            to,\n            amount,\n            block.timestamp,\n            nonce,\n            signature,\n            Step.Burn\n        );\n    }\n\n    function mint(\n        address from,\n        address to,\n        uint256 amount,\n        uint256 nonce,\n        bytes calldata signature\n    ) external {\n        bytes32 message = prefixed(\n            keccak256(abi.encodePacked(from, to, amount, nonce))\n        );\n        require(recoverSigner(message, signature) == from, \"WRONG_SIGNATURE\");\n        require(\n            processedNonces[from][nonce] == false,\n            \"TRANSFER_ALREADY_PROCESSED\"\n        );\n        processedNonces[from][nonce] = true;\n        token.mint(to, amount);\n        emit Transfer(\n            from,\n            to,\n            amount,\n            block.timestamp,\n            nonce,\n            signature,\n            Step.Mint\n        );\n    }\n\n    function prefixed(bytes32 hash) internal pure returns (bytes32) {\n        return\n            keccak256(\n                abi.encodePacked(\"\\x19Ethereum Signed Message:\\n32\", hash)\n            );\n    }\n\n    function recoverSigner(bytes32 message, bytes memory sig)\n        internal\n        pure\n        returns (address)\n    {\n        uint8 v;\n        bytes32 r;\n        bytes32 s;\n\n        (v, r, s) = splitSignature(sig);\n\n        return ecrecover(message, v, r, s);\n    }\n\n    function splitSignature(bytes memory sig)\n        internal\n        pure\n        returns (\n            uint8,\n            bytes32,\n            bytes32\n        )\n    {\n        require(sig.length == 65);\n\n        bytes32 r;\n        bytes32 s;\n        uint8 v;\n\n        assembly {\n            // first 32 bytes, after the length prefix\n            r := mload(add(sig, 32))\n            // second 32 bytes\n            s := mload(add(sig, 64))\n            // final byte (first byte of the next 32 bytes)\n            v := byte(0, mload(add(sig, 96)))\n        }\n\n        return (v, r, s);\n    }\n}\n"
+    },
+    "contracts/IToken.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\n\ninterface IToken {\n    function mint(address account, uint256 amount) external;\n\n    function burn(address account, uint256 amount) external;\n}\n"
+    },
+    "contracts/BridgeETH.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\n\nimport \"./BridgeBase.sol\";\n\ncontract BridgeETH is BridgeBase {\n    constructor(address token) BridgeBase(token) {}\n}\n"
+    },
+    "contracts/BridgeBSC.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\n\nimport \"./BridgeBase.sol\";\n\ncontract BridgeBSC is BridgeBase {\n    constructor(address token) BridgeBase(token) {}\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
