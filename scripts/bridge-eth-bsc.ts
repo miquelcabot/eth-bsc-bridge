@@ -15,14 +15,13 @@ const MNEMONIC: string = process.env.MNEMONIC || '';
 /**
  * bridge function
  */
-async function bridge(from: string, to: string, amount: BigNumber, date: BigNumber, nonce: BigNumber, signature: any, step: number, process: boolean) {
+async function bridge(from: string, to: string, amount: BigNumber, date: BigNumber, nonce: BigNumber, signature: string, step: number, process: boolean) {
   console.log('Transfer');
   console.log(`from: ${from}`);
   console.log(`to: ${to}`);
   console.log(`amount: ${amount}`);
   console.log(`date: ${date}`);
   console.log(`nonce: ${nonce}`);
-  console.log(typeof signature);
   console.log(`signature: ${signature}`);
   console.log(`step: ${step}`);
   console.log(``);
@@ -50,6 +49,7 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
         - date ${date}
         - nonce ${nonce}
         - signature ${signature}
+        - step ${step}
       `);
     } catch (error) {
       console.log(`
@@ -60,7 +60,7 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
         - date ${date}
         - nonce ${nonce}
         - signature ${signature}
-        - error ${error}
+        - step ${step}
       `);
     }
 
