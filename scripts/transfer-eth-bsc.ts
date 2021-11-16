@@ -16,7 +16,9 @@ async function main() {
     ['address', 'address', 'uint256', 'uint256'],
     [owner.address, owner.address, amount, nonce]
   );
-  const signature = await owner.signMessage(message);
+  // We need to pass the binary 32 bytes of data with ethers.utils.arrayify()
+  // Source: https://github.com/ethers-io/ethers.js/issues/285
+  const signature = await owner.signMessage(ethers.utils.arrayify(message));
 
   const BridgeETH = await ethers.getContractFactory('BridgeETH');
   const bridgeETH = await BridgeETH.attach(BRIDGEETH.address);
