@@ -8,10 +8,10 @@ import * as TOKENETH from '../deployments/rinkeby/TokenETH.json';
  * main function
  */
 async function main() {
-  const [owner] = await ethers.getSigners();
-
   const TokenETH = await ethers.getContractFactory('TokenETH');
   const tokenETH = await TokenETH.attach(TOKENETH.address);
+
+  const [owner] = await ethers.getSigners();
 
   const balance = await tokenETH.balanceOf(owner.address);
   console.log(`Balance of ${owner.address} in Rinkeby: ${balance}`);

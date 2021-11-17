@@ -8,9 +8,13 @@ import * as BRIDGEETH from '../deployments/rinkeby/BridgeETH.json';
  * main function
  */
 async function main() {
-  const nonce = 1; //Need to increment this for each new transfer
+  const BridgeETH = await ethers.getContractFactory('BridgeETH');
+  const bridgeETH = await BridgeETH.attach(BRIDGEETH.address);
+
   const [owner] = await ethers.getSigners();
   const amount = 1000;
+  // We get the last saved nonce for the account and add 1
+  const nonce = (await bridgeETH.maxProcessedNonce(owner.address)).add(1);
 
   const message = ethers.utils.solidityKeccak256(
     ['address', 'address', 'uint256', 'uint256'],
@@ -19,9 +23,6 @@ async function main() {
   // We need to pass the binary 32 bytes of data with ethers.utils.arrayify()
   // Source: https://github.com/ethers-io/ethers.js/issues/285
   const signature = await owner.signMessage(ethers.utils.arrayify(message));
-
-  const BridgeETH = await ethers.getContractFactory('BridgeETH');
-  const bridgeETH = await BridgeETH.attach(BRIDGEETH.address);
 
   await bridgeETH.burn(owner.address, amount, nonce, signature);
 }

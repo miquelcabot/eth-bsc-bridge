@@ -61,6 +61,7 @@ async function bridge(from: string, to: string, amount: BigNumber, date: BigNumb
         - nonce ${nonce}
         - signature ${signature}
         - step ${step}
+        - error ${error}
       `);
     }
 
